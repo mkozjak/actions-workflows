@@ -1,0 +1,17 @@
+name: Release
+
+on:
+  release:
+    types: [released]
+
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Run a multi-line script
+        run: echo "A new release was made - promoting a docker image to production!"
