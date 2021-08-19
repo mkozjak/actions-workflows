@@ -1,14 +1,16 @@
 {
   "name": "actions-workflows",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "main": "index.js",
   "repository": "https://github.com/mkozjak/actions-workflows",
   "author": "Mario Kozjak <kozjakm1@gmail.com>",
   "license": "LGPLv3.1",
   "scripts": {
-    "release": "standard-version"
+    "tag": "standard-version",
+    "release": "conventional-github-releaser"
   },
   "dependencies": {
+    "conventional-github-releaser": "^3.1.5",
     "standard-version": "^9.3.1"
   }
 }
