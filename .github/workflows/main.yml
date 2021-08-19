@@ -15,12 +15,14 @@ jobs:
   build:
     runs-on: ubuntu-latest
     
-    if: github.event.release.action == 'released'
+    # if: github.event.release.action == 'released'
     steps:
       - uses: actions/checkout@v2
 
       - name: Run a multi-line script
         run: |
+          echo ${{ github.event.release.action }}
+          
           case $GITHUB_EVENT_NAME in
             pull_request)
               echo "PR merged - promoting a docker image to staging!"
