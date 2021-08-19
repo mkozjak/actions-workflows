@@ -21,7 +21,7 @@ jobs:
 
       - name: Run a multi-line script
         run: |
-          echo ${{ github.event.release.action }}
+          echo ${{ github.event.release }}
           
           case $GITHUB_EVENT_NAME in
             pull_request)
