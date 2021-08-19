@@ -14,7 +14,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     
-    if: github.release.draft != false || (github.event.pull_request.merged && !startsWith(github.head_ref, 'hotfix/'))
+    if: github.release || (github.event.pull_request.merged && !startsWith(github.head_ref, 'hotfix/'))
     steps:
       - uses: actions/checkout@v2
 
