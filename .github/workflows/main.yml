@@ -1,33 +1,18 @@
-name: CI
+name: PR merged
 
 on:
   pull_request:
     types: [closed]
-    branches:
-      - 'main'
-  release:
-    types: [released]
-
+    branches: [main]
   workflow_dispatch:
 
 jobs:
   build:
     runs-on: ubuntu-latest
     
-    if: github.release || (github.event.pull_request.merged && !startsWith(github.head_ref, 'hotfix/'))
+    if: github.event.pull_request.merged && !startsWith(github.head_ref, 'hotfix/')
     steps:
       - uses: actions/checkout@v2
 
       - name: Run a multi-line script
-        run: |
-          echo ${{ github.event.release }}
-          
-          case $GITHUB_EVENT_NAME in
-            pull_request)
-              echo "PR merged - promoting a docker image to staging!"
-              ;;
-
-            release)
-              echo "A new release was made - promoting a docker image to production!"
-              ;;
-          esac
+        run: echo "PR merged - promoting a docker image to staging!"
