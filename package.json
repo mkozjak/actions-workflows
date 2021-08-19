@@ -1,6 +1,6 @@
 {
   "name": "actions-workflows",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "main": "index.js",
   "repository": "https://github.com/mkozjak/actions-workflows",
   "author": "Mario Kozjak <kozjakm1@gmail.com>",
