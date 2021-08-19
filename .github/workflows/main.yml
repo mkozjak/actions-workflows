@@ -6,7 +6,7 @@ on:
     branches:
       - 'main'
   release:
-    types: [published]
+    types: [created]
 
   workflow_dispatch:
 
@@ -14,7 +14,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     
-    if: github.event.release.action == 'published' || (github.event.pull_request.merged && !startsWith(github.head_ref, 'hotfix/'))
+    if: github.event.release.action == 'released' || (github.event.pull_request.merged && !startsWith(github.head_ref, 'hotfix/'))
 
     steps:
       - uses: actions/checkout@v2
